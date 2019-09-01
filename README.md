@@ -10,13 +10,12 @@ ___
 - [Resources Over Web](#resources)
 - [To do list](#to-do)
 
-___
-
 ---
 
 ## Code Snippets<a name="code-snippets"></a>
 
-1. <!-- link to code snippets -->
+1. [A demo with LitElement (How it works)](./code-sandbox/lit-tutorial-example.md)
+
 
 ---
 

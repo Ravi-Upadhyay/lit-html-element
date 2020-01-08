@@ -9,7 +9,7 @@ ___
 - [An overview](#overview)
     - The changing web - Template system
     - Characterstics of the template system
-- [Lit Html](#lit-html)
+- [Intro to Lit Html](#lit-html)
 - [Code snippets](#code-snippets)
 - [Best practices](#best-practices)
 - [Libraries that uses Lit Element / Lit Html](#libraries-using-lit)
@@ -63,7 +63,65 @@ For most of the time it is very important how to bridge this gap. HTML contains 
 
 ___
 
-### Lit Html<a name="lit-html"></a>
+### Intro to Lit Html<a name="lit-html"></a>
+
+- A library to write html templates into Javascript. 
+- That boots and updates fast.
+- Extremely small.
+- Easy to use, extensible API.
+
+#### Lit Html Template - Tag Template Literals
+
+```javascript
+// Example-1: How we write html template into javascript
+html `
+    <div>
+        <h1>${title}</h1>
+        <body>${content}</body>
+    </div>
+`;
+```
+If we see the example above, we note that
+
+- It seems like a ES6  string template literal
+- It has tag i.e. `html`
+
+> `tag` is a special function that process the string template literal and javascript expressions for the value. Interesting, is it do not need to return string, it can return any type of value.
+
+#### What value the tag will return?
+
+- __String?__ If it will be string it will be very costly to update via innerHTML.
+- __DOM?__ Entire `DOM tree` will be replaced/reconstructed.
+
+> It returns the `templateResult`, It is reference to the template and data which will be used into the template. It can be seen as instruction to render the template it is not the template itself.
+
+```javascript
+// Example-1: How we write html template into javascript
+let templateResult =
+html `
+    <div>
+        <h1>${title}</h1>
+        <body>${content}</body>
+    </div>
+`;
+
+render(templateResult, container);
+```
+- We pass templateResult and container to the render function.
+- First time it will tender the complete template, then only the updates.
+
+#### So isn't it similar to react?
+
+There are indeed some similarities but some differences too.
+
+- `Lit Html` does not uses `JSX`, it uses plain javascript.
+- `Lit Html` does not have concept of `virtual DOM`.
+- There is one philosophical similarity though.
+
+> At any given time UI is a pure function of state. For the given state UI generated will always be the same UI. Library take care of rendering.
+
+
+
 ___
 
 ## Code Snippets<a name="code-snippets"></a>
@@ -103,3 +161,4 @@ ___
 
 1. Typescript course, as it will be using it.
 2. Polymer 2/Polymer 3 to lit and vice versa.
+3. Read more about ES6 Tag Template Literals.

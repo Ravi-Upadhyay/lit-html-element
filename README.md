@@ -7,6 +7,9 @@ ___
 ## Index
 
 - [An overview](#overview)
+    - The changing web - Template system
+    - Characterstics of the template system
+- [Lit Html](#lit-html)
 - [Code snippets](#code-snippets)
 - [Best practices](#best-practices)
 - [Libraries that uses Lit Element / Lit Html](#libraries-using-lit)
@@ -33,6 +36,34 @@ ___
 
 ![Fig 2: Example code snippet with template system](resources/using-template-system.png)
 
+### Characterstics of the template system
+
+It is good that template system is at our rescue, But it is incredibly hard to have a good template system
+
+1. Developer experience
+2. Boot fast
+3. Update fast
+4. Bridge JS & HTML
+
+#### Developer experience
+
+What strategy or way to use that looks seam less and easy to understand. `JSX` became very popular due to its seamless integration.
+
+#### Boot fast
+
+Time is directly related to real money, Now even seconds count.
+
+#### Update fast
+
+Data model should be sound enough to update/propogate the changes throughout. The faster the better.
+
+#### Bridge JS & HTML
+
+For most of the time it is very important how to bridge this gap. HTML contains views/template while JS contains the logic.
+
+___
+
+### Lit Html<a name="lit-html"></a>
 ___
 
 ## Code Snippets<a name="code-snippets"></a>
@@ -70,4 +101,5 @@ ___
 
 ## To do list<a name="to-do"></a>
 
-1. <!-- list of the to do points about this document, till the document is not completed -->
+1. Typescript course, as it will be using it.
+2. Polymer 2/Polymer 3 to lit and vice versa.

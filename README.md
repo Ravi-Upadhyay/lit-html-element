@@ -96,7 +96,7 @@ If we see the example above, we note that
 > It returns the `templateResult`, It is reference to the template and data which will be used into the template. It can be seen as instruction to render the template it is not the template itself.
 
 ```javascript
-// Example-1: How we write html template into javascript
+// Example-2: Complete example, How to render
 let templateResult =
 html `
     <div>
@@ -118,8 +118,49 @@ There are indeed some similarities but some differences too.
 - `Lit Html` does not have concept of `virtual DOM`.
 - There is one philosophical similarity though.
 
-> At any given time UI is a pure function of state. For the given state UI generated will always be the same UI. Library take care of rendering.
+> At any given time UI is a pure function of state. For the given state UI generated will always be the same UI. Library take care of rendering. 
 
+```
+UI = f(state)
+```
+
+#### Examples to demonstrate lit html
+```javascript
+//Example-3: Nested templates can be used
+let header = html`<h1>${header}</h1>`;
+
+html`
+${header}
+<p>some content here</p>
+`;
+
+//Example-4: Using javascript logic
+if (user.loggedIn) {
+    message = html`Welcome ${user.name}`;
+} else {
+    message = html`Please sign in to continue`;
+}
+
+html`
+${message}
+<div>...</div>
+`;
+
+//Example-5: Powerful implementaion, combining with nested templates
+html`
+<ul>
+    ${myArray.map((item)=>{
+        return html`<li>${item.name}</li>`;
+    })}
+</ul>
+`;
+
+//Example-6: Node as datatype is accepted (IMPORTANT - 3rd party libraries integration)
+let elem = document.createElement('div');
+chartLib.createBarChart(elem);
+
+html`<div>${elem}</div>`;
+```
 
 
 ___
@@ -148,7 +189,7 @@ ___
 
 ## Resources Over Web<a name="resources"></a>
 
-- [A nice introduction, Google Dev Summit 2017](https://youtu.be/Io6JjgckHbg)
+- [A nice introduction, Google Dev Summit 2017 (Video)](https://youtu.be/Io6JjgckHbg)
 - [Lit-Html, Github](https://github.com/web-padawan/awesome-lit-html)
 - [Lit-Html, Polymer](https://lit-html.polymer-project.org/)
 - [Lit-Element, Polymer](https://lit-element.polymer-project.org/)
